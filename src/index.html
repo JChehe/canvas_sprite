@@ -6,21 +6,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta name="format-detection" content="telephone=no">
   <title>ELF Base Template</title>
-
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <!-- 不要删除或改变下面这行代码 -->
   {{{__HEAD_JAVASCRIPT__}}}
-
+  <style>
+    canvas {
+      border: 0!important;
+      display: block;
+      /*vertical-align: top;;*/
+    }
+  </style>
 </head>
 
 <body>
   <!-- begin loading 动画，对应的样式在 src/css/loading.scss -->
-  
+  <div id="o2_loading" class="loading">
+    <div class="inner">
+      <i class="before"></i>
+      <i class="after"></i>
+    </div>
+    <div class="text">loading</div>
+  </div>
   <!-- end loading -->
-  
   <!-- begin 主体内容 -->
-  <canvas id="coin-sprite" width="100" height="100"></canvas>
-  <canvas id="bear-sprite" width="100" height="100"></canvas>
+  <!-- <img src="./img/bear.png" alt=""> -->
+  <div id="o2_main" class="hide">
+    <div class="case-list">
+      <div class="case-item">
+        <div class="case-item-header bg-primary">
+          <h3>无限循环、1秒执行15帧、animation-direction: normal</h3>        
+        </div>
+        <div class="case-item-content">
+          <div>
+            <canvas id="coin-sprite"></canvas>
+          </div>
+          <div class="case-item-control">
+            <button type="button" class="btn btn-sm btn-danger" id="pause">pause</button>
+            <button type="button" class="btn btn-sm btn-info" id="reset">restart</button>
+            <button type="button" class="btn btn-sm btn-warning" id="toFirst">toFirstFrameAndPause</button>
+          </div>
+            <pre>
+  coin = new Sprite({
+    canvas: document.getElementById('coin-sprite'),
+    sWidth: 1000/10,
+    sHeight: 100,
+    dWidth: 1000/10,
+    dHeight: 100,
+    image: this.get('../img/coin_sprite.png'),
+    ticksPerFrame: 4,
+    numberOfFrames: 10,
+    zoom: true
+  })</pre>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="case-item">
+        <div class="case-item-header bg-primary">
+          <h3>循环3次、1秒执行15帧、animation-direction: alternate</h3>        
+        </div>
+        <div class="case-item-content">
+          <div>
+            <canvas id="bear-sprite"></canvas>
+          </div>
+          <div class="case-item-control">
+            <button class="btn btn-success loopAgain">loopAgain</button>
+          </div>
+            <pre>
+  bear = new Sprite({
+    canvas: document.getElementById('bear-sprite'),
+    sWidth: 960/20,
+    sHeight: 27,
+    dWidth: 960/20,
+    dHeight: 27,
+    image: this.get('../img/bear.png'),
+    ticksPerFrame: 4,
+    numberOfFrames: 20,
+    animationDirction: 'alternate',
+    zoom: true,
+    finishHandle: function() {
+      console.log('bear finish!!')
+    }
+  })</pre>
+        </div>
+      </div>
+      <div class="case-item">
+        <div class="case-item-header bg-primary">
+          <h3>循环1次、1秒执行15帧、animation-direction: alternate</h3>        
+        </div>
+        <div class="case-item-content">
+          <div>
+            <canvas id="jd-sprite"></canvas>
+          </div>
+          <div class="case-item-control">
+            <!-- <button class="btn btn-success loopAgain">loopAgain</button> -->
+          </div>
+            <pre>
+  jd = new Sprite({
+    canvas: document.getElementById('jd-sprite'),
+    sWidth: 200,
+    sHeight: 618/3,
+    dWidth: 200 / 2,
+    dHeight: 618/3 / 2,
+    image: this.get('../img/jd_sprite.png'),
+    ticksPerFrame: 20,
+    numberOfFrames: 3,
+    iterationCount: 'infinite',
+    imageDirection: 'top-bottom',
+    zoom: false,
+    finishHandle: function() {
+      console.log('JD Sprite finish!')
+    }
+  })</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <canvas id="bear-sprite"></canvas> -->
   <!-- end 主体内容 -->
+
 </body>
 
 </html>

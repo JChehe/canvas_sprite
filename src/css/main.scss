@@ -2,74 +2,25 @@
 @import "./base.css";
 @import "./loading.scss";
 
-canvas {
-  border: 1px solid black;
-}
-/* .main {
-  width: 100%;
-  height: 100%;
-  // background-color: #282B56;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .info {
-    text-align: center;
-    .name {
-      margin: 0 auto 30px;
-      width: 200px;
-      height: 200px;
-      line-height: 200px;
-      background-color: #FFF;
-      border-radius: 100%;
-      font-size: 60px;
-      text-transform: uppercase;
-    }
-  }
-} */
-
-.sprite {
-   width: 676px;
-    height: 730px;
-  background: url(../img/brain_light_sprite.png) 0 0 no-repeat;
-  background-size: auto 100%;
-  animation: spriteMoveBrain 3s steps(1, end) infinite alternate both;
-  // animation: spriteMoveBrain 10s steps(5, end) infinite alternate both;
-}
-/* @keyframes spriteMoveBrain {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: (-676px * 5) 0;
-  }
-  
-} */
-
-@keyframes spriteMoveBrain {
-  @for $i from 0 to 5 {
-    #{$i * 20%} {
-      background-position: #{-$i*676px}
-    }
-  }
+html {
+  max-width: 750PX;
+  margin: 0 auto;
 }
 
-
-.test {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  animation: test 5s linear;
-}
-
-@keyframes test {
-  0% {
-    transform: translateX(0);
+.case-item {
+  pre {
+    white-space: pre;
   }
-  50% {
-    transform: translateX(100%)
+  &-header {
+    padding: 30px;
   }
-  100% {
-    transform: translateX(0)
+  &-content {
+    padding: 16px;
   }
+  &-control {
+    margin: 16px 0;
+  }
+  &-footer {
 
+  }
 }

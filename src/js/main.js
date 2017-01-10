@@ -2,7 +2,6 @@ require('../index.html')
 require('../css/main.scss')
 require('../img/coin_sprite.png')
 require('../img/bear.png')
-require('../img/model.jpg')
 require('../img/jd_sprite.png')
 var Preloader = require('preloader.js')
 preloader = new Preloader({
@@ -295,7 +294,7 @@ preloader.addCompletionListener(function () {
 		image: this.get('../img/coin_sprite.png'),
 		ticksPerFrame: 4,
 		numberOfFrames: 10,
-		zoom: false
+		zoom: true
 	})
   coin.loop()
 
